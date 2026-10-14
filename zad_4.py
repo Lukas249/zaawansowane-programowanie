@@ -7,7 +7,7 @@ def fn(nums: List[int]) -> None:
             print(nums[i])
 
 
-nums = [i for i in range(5,15,2)]
+nums = list(range(1,11))
 
 print("Wszystkie elementy:")
 print(nums)

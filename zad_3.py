@@ -7,6 +7,6 @@ def fn(nums: List[int]) -> None:
             print(num)
 
 
-nums = [i for i in range(10)]
+nums = list(range(10))
 
 fn(nums)

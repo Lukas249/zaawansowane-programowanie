@@ -2,10 +2,12 @@ from typing import List
 
 
 def fn_1(nums: List[int]) -> List[int]:
-    for i in range(len(nums)):
-        nums[i] *= 2
+    result = []
 
-    return nums
+    for num in nums:
+        result.append(num * 2)
+
+    return result
 
 print(fn_1([1,2,3,4,5]))
 
