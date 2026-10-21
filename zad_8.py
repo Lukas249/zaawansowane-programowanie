@@ -1,6 +1,7 @@
 import requests
 import argparse
 
+
 class Brewery:
     id: str
     name: str
@@ -56,6 +57,7 @@ class Brewery:
         State abbreviation or name: {self.state}
         Street address: {self.street}
         '''
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--city")
