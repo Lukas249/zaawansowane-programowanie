@@ -13,7 +13,7 @@ class Student:
     def __str__(self) -> str:
         return f"""Student[
             name: {self._name},
-            marks: {self._marks}   
+            marks: {self._marks}
         ]"""
 
 

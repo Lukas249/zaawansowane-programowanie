@@ -2,6 +2,7 @@ from typing import List
 
 from zad_1 import Student
 
+
 class Library:
 
     def __init__(self, city: str, street: str, zip_code: str, open_hours: str, phone: str) -> None:
@@ -19,6 +20,7 @@ class Library:
             Opening Hours: {self._open_hours}
             Phone: {self._phone}
         ]"""
+
 
 class Employee:
     def __init__(self, first_name: str, last_name: str, hire_date: str, birth_date: str, city: str, street: str, zip_code: str, phone: str) -> None:
@@ -43,6 +45,7 @@ class Employee:
             Phone: {self._phone}
         ]"""
 
+
 class Book:
     def __init__(self, library: Library, publication_date: str, author_name: str, author_surname: str, number_of_pages: int) -> None:
         self._library = library
@@ -58,6 +61,7 @@ class Book:
             Author: {self._author_name} {self._author_surname}
             Number of Pages: {self._number_of_pages}
         ]"""
+
 
 class Order:
     def __init__(self, employee: Employee, student: Student, books: List[Book], order_date: str) -> None:
@@ -96,9 +100,9 @@ employee1 = Employee("Anna", "Nowak", "2020-01-15", "1990-05-20", "Katowice", "u
 employee2 = Employee("Jan", "Kowalski", "2018-03-10", "1985-11-02", "Zabrze", "ul. Krótka 10", "41-800", "444555666")
 employee3 = Employee("Piotr", "Zieliński", "2022-07-01", "1995-08-15", "Gliwice", "ul. Jasna 2", "44-100", "777888999")
 
-student1 = Student("Michał Wiśniewski", marks=[55,45])
-student2 = Student("Katarzyna Wójcik", marks=[75,80])
-student3 = Student("Tomasz Lis", marks=[80,90])
+student1 = Student("Michał Wiśniewski", marks=[55, 45])
+student2 = Student("Katarzyna Wójcik", marks=[75, 80])
+student3 = Student("Tomasz Lis", marks=[80, 90])
 
 order1 = Order(employee1, student1, [book1, book2, book5], "2023-10-21")
 order2 = Order(employee2, student2, [book3, book4], "2023-10-22")

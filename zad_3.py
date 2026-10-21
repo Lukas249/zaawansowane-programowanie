@@ -14,6 +14,7 @@ class Property:
             Address: {self._address}
         ]"""
 
+
 class House(Property):
 
     def __init__(self, area: float, rooms: int, price: float, address: str, plot: int):
@@ -42,8 +43,9 @@ class Flat(Property):
             Rooms: {self._rooms}
             Price: {self._price}
             Address: {self._address}
-            Floor: {self._floor}   
+            Floor: {self._floor}
         ]"""
+
 
 house1 = House(100, 4, 300000, "ul. Niebieska 56", 40)
 flat1 = Flat(80, 5, 150000, "ul. Zielona 4/6", 4)
