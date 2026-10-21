@@ -9,11 +9,12 @@ def fn_1(nums: List[int]) -> List[int]:
 
     return result
 
-print(fn_1([1,2,3,4,5]))
+
+print(fn_1([1, 2, 3, 4, 5]))
+
 
 def fn_2(nums: List[int]) -> List[int]:
     return [x * 2 for x in nums]
 
-print(fn_2([1,2,3,4,5]))
 
-
+print(fn_2([1, 2, 3, 4, 5]))
