@@ -1,5 +1,6 @@
 import requests
 
+
 class Brewery:
     id: str
     name: str
@@ -55,6 +56,7 @@ class Brewery:
         State abbreviation or name: {self.state}
         Street address: {self.street}
         '''
+
 
 params = {
     "page": 1,
