@@ -1,3 +1,1 @@
 # zaawansowane-programowanie
-
-test
