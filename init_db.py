@@ -48,4 +48,5 @@ def init_db():
 
         session.commit()
 
+
 init_db()

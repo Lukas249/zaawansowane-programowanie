@@ -6,6 +6,7 @@ from tables_db import Movie, Link, Rating, Tag
 
 app = FastAPI()
 
+
 def get_all(class_type):
     with get_session() as session:
         return session.scalars(select(class_type)).all()
