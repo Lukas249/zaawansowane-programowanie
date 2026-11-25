@@ -1,59 +1,43 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-
 from load_data import load_file
 
 app = FastAPI()
 
 
-class Movie(BaseModel):
-    movieId: str
-    title: str
-    genres: str
+class Movie:
+    def __init__(self, movieId: str, title: str, genres: str):
+        self.movieId = movieId
+        self.title = title
+        self.genres = genres
 
 
-movies_columns, movies = load_file("database/movies.csv")
-
-for i in range(len(movies)):
-    movies[i] = Movie(**dict(zip(movies_columns, movies[i])))
-
-
-class Link(BaseModel):
-    movieId: str
-    imdbId: str
-    tmdbId: str
+class Link:
+    def __init__(self, movieId: str, imdbId: str, tmdbId: str):
+        self.movieId = movieId
+        self.imdbId = imdbId
+        self.tmdbId = tmdbId
 
 
-links_columns, links = load_file("database/links.csv")
-
-for i in range(len(links)):
-    links[i] = Link(**dict(zip(links_columns, links[i])))
-
-
-class Rating(BaseModel):
-    userId: str
-    movieId: str
-    rating: float
-    timestamp: int
+class Rating:
+    def __init__(self, userId: str, movieId: str, rating: float, timestamp: int):
+        self.userId = userId
+        self.movieId = movieId
+        self.rating = float(rating)
+        self.timestamp = int(timestamp)
 
 
-ratings_columns, ratings = load_file("database/ratings.csv")
-
-for i in range(len(ratings)):
-    ratings[i] = Rating(**dict(zip(ratings_columns, ratings[i])))
-
-
-class Tag(BaseModel):
-    userId: str
-    movieId: str
-    tag: str
-    timestamp: int
+class Tag:
+    def __init__(self, userId: str, movieId: str, tag: str, timestamp: int):
+        self.userId = userId
+        self.movieId = movieId
+        self.tag = tag
+        self.timestamp = int(timestamp)
 
 
-tags_columns, tags = load_file("database/tags.csv")
-
-for i in range(len(tags)):
-    tags[i] = Tag(**dict(zip(tags_columns, tags[i])))
+movies = [Movie(*row) for row in load_file("database/movies.csv")]
+links = [Link(*row) for row in load_file("database/links.csv")]
+ratings = [Rating(*row) for row in load_file("database/ratings.csv")]
+tags = [Tag(*row) for row in load_file("database/tags.csv")]
 
 
 @app.get("/")
@@ -63,19 +47,19 @@ def read_root():
 
 @app.get("/movies")
 def read_movies():
-    return movies
+    return [movie.__dict__ for movie in movies]
 
 
 @app.get("/links")
 def read_links():
-    return links
+    return [link.__dict__ for link in links]
 
 
 @app.get("/ratings")
 def read_ratings():
-    return ratings
+    return [rating.__dict__ for rating in ratings]
 
 
 @app.get("/tags")
 def read_tags():
-    return tags
+    return [tag.__dict__ for tag in tags]
