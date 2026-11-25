@@ -1,5 +1,6 @@
 import csv
 
+
 def load_file(file_name: str) -> (list, list[list]):
     with open(file_name, "r", encoding="utf-8") as file:
 
