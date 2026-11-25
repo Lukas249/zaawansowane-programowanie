@@ -1,26 +1,10 @@
-def load_file(file_name: str):
-    file = open(file_name, "r", encoding="utf-8")
+import csv
 
-    line = file.readline()
+def load_file(file_name: str) -> (list, list[list]):
+    with open(file_name, "r", encoding="utf-8") as file:
 
-    columns = [line.strip() for line in line.split(",")]
-
-    data = []
-
-    line = file.readline()
-
-    while line:
-        row = [line.strip() for line in line.split(",")]
-
-        obj = {}
-
-        for i in range(len(columns)):
-            obj[columns[i]] = row[i]
-
-        data.append(obj)
-
-        line = file.readline()
-
-    file.close()
-
-    return data
+        reader = csv.reader(file, delimiter=",")
+        reader_list = list(reader)
+        columns = reader_list[0]
+        rows = reader_list[1:]
+        return columns, rows
